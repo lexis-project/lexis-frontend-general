@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+
+  portal:
+    image: registry.msad.it4i.lexis.tech:5000/lexis-portal-be:HPC-latest
+    restart: always
+    ports:
+      - 8443:443
+    volumes:
+      - type: bind
+        source: ${PWD}/config.toml
+        target: /config.toml
+      - type: bind
+        source: ${PWD}/cert
+        target: /cert

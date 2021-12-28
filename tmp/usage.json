@@ -1,0 +1,54 @@
+{
+  "HPCProjects": [
+    {
+      "AccountingData": [
+        {
+          "cost": 3383.3,
+          "resource_type": "floatingip",
+          "resources_amount": 126,
+          "usage": { "active": 11808645, "inactive": 280514406 }
+        },
+        {
+          "cost": 13884.27,
+          "resource_type": "blockstorage",
+          "resources_amount": 11,
+          "size": 1000,
+          "usage": { "active": 9446004 }
+        },
+        {
+          "cost": 12857.87,
+          "flavor": "xlarge-mem",
+          "resource_type": "server",
+          "resources_amount": 66,
+          "usage": { "active": 9559146, "inactive": 20709 }
+        },
+        {
+          "cost": 4875.48,
+          "flavor": "large",
+          "resource_type": "server",
+          "resources_amount": 5,
+          "usage": { "active": 1985301, "inactive": 1800 }
+        },
+        {
+          "cost": 6.82,
+          "flavor": "normal",
+          "resource_type": "server",
+          "resources_amount": 4,
+          "usage": { "active": 8121, "inactive": 2703 }
+        },
+        {
+          "cost": 404.94,
+          "flavor": "xlarge-cpu-mem",
+          "resource_type": "server",
+          "resources_amount": 17,
+          "usage": { "active": 256884, "inactive": 10815 }
+        }
+      ],
+      "HPCProjectID": "14115a0e-f76e-5da5-1840-011292c54614"
+    }
+  ],
+  "ProjectID": "00cbfc3d-8eb0-9496-9633-89d4f6d890ae",
+  "ProjectName": "LEXIS Demo Project",
+  "TimeFrom": "2021-06-02T09:45:43.621Z",
+  "TimeTo": "2021-12-22T08:37:54.190Z"
+}

@@ -1,0 +1,387 @@
+{
+    "workflowID": "MyAgriWF-dba509be827318bd7607e68e66d0ecc9afe93b279fee8583d79fc88f7059cb48",
+    "projectName": "TWO 2 2",
+    "projectShortName": "lexis_weather",
+    "workflowName": "MyAgriWF",
+    "inputFiles": [],
+    "inputParameters": [
+        {
+            "description": "Dataset containing radar observations data over France for the selected date",
+            "displayName": "Radar Observations Data Path",
+            "inputParamDefaultValue": "<nil>",
+            "inputParamName": "computation_dataset_radar_observations_data_path",
+            "inputParamRequired": true,
+            "inputParamType": "string",
+            "isDataset": true,
+            "task": "computation"
+        },
+        {
+            "description": "Should the radar observations data dataset be decrypted",
+            "displayName": "Decrypt Dataset Radar Observations Data",
+            "inputParamDefaultValue": "false",
+            "inputParamName": "computation_decrypt_dataset_radar_observations_data",
+            "inputParamType": "boolean",
+            "task": "computation"
+        },
+        {
+            "description": "Should the radar observations data dataset be uncompressed",
+            "displayName": "Uncompress Dataset Radar Observations Data",
+            "inputParamDefaultValue": "true",
+            "inputParamName": "computation_uncompress_dataset_radar_observations_data",
+            "inputParamType": "boolean",
+            "task": "computation"
+        },
+        {
+            "description": "Port of the SFTP server",
+            "displayName": "Agriculture Sftp Port",
+            "inputParamDefaultValue": "22",
+            "inputParamName": "postprocessing_agriculture_sftp_port",
+            "inputParamType": "integer",
+            "task": "postprocessing"
+        },
+        {
+            "description": "Absolute path to directory on SPTP server where to store results",
+            "displayName": "Agriculture Sftp Server Directory",
+            "inputParamDefaultValue": "/limagrain",
+            "inputParamName": "postprocessing_agriculture_sftp_server_directory",
+            "inputParamType": "string",
+            "task": "postprocessing"
+        },
+        {
+            "description": "IP address of a SPTP server where to store results (default, no sftp server upload)",
+            "displayName": "Agriculture Sftp Server Ip",
+            "inputParamName": "postprocessing_agriculture_sftp_server_ip",
+            "inputParamType": "string",
+            "task": "postprocessing"
+        },
+        {
+            "description": "Compress the WRF result dataset",
+            "displayName": "Compress Wrf Dataset Result",
+            "inputParamDefaultValue": "true",
+            "inputParamName": "postprocessing_compress_wrf_dataset_result",
+            "inputParamType": "boolean",
+            "task": "postprocessing"
+        },
+        {
+            "description": "Path of the project where to transfer the post-processing results in DDI",
+            "displayName": "Ddi Project Path",
+            "inputParamDefaultValue": "project/proj2bdfd9ccf5a78c3ec68ee9e1d90d2c1c",
+            "inputParamName": "postprocessing_ddi_project_path",
+            "inputParamType": "string",
+            "task": "postprocessing"
+        },
+        {
+            "description": "IP address of a Dewetra SPTP server where to store results (default, no sftp server upload)",
+            "displayName": "Dewetra Sftp Server Ip",
+            "inputParamName": "postprocessing_dewetra_sftp_server_ip",
+            "inputParamType": "string",
+            "task": "postprocessing"
+        },
+        {
+            "description": "Encrypt the WRF result dataset",
+            "displayName": "Encrypt Wrf Dataset Result",
+            "inputParamDefaultValue": "false",
+            "inputParamName": "postprocessing_encrypt_wrf_dataset_result",
+            "inputParamType": "boolean",
+            "task": "postprocessing"
+        },
+        {
+            "description": "DDI project short name",
+            "displayName": "Project Short Name",
+            "inputParamDefaultValue": "wp7",
+            "inputParamName": "postprocessing_project_short_name",
+            "inputParamType": "string",
+            "task": "postprocessing"
+        },
+        {
+            "description": "Dataset containing geographical data",
+            "displayName": "Geographical Data Path",
+            "inputParamDefaultValue": "project/proj2bdfd9ccf5a78c3ec68ee9e1d90d2c1c/a5b8ddbe-6054-4cb7-98ff-e678b6eba7f4/static_geog_data.tar.gz",
+            "inputParamName": "preprocessing_dataset_geographical_data_path",
+            "inputParamType": "string",
+            "isDataset": true,
+            "task": "preprocessing"
+        },
+        {
+            "description": "Should the input dataset be decrypted",
+            "displayName": "Decrypt Dataset Geographical Data",
+            "inputParamDefaultValue": "false",
+            "inputParamName": "preprocessing_decrypt_dataset_geographical_data",
+            "inputParamType": "boolean",
+            "task": "preprocessing"
+        },
+        {
+            "description": "Pre-processing container repository path",
+            "displayName": "Docker Image Ifs",
+            "inputParamDefaultValue": "cimafoundation/wps-da.ifs:v2.0.3",
+            "inputParamName": "preprocessing_docker_image_ifs",
+            "inputParamType": "string",
+            "task": "preprocessing"
+        },
+        {
+            "description": "Repository path of container downloading observation data",
+            "displayName": "Docker Image Observation Data",
+            "inputParamDefaultValue": "cimafoundation/lexis-download-docker:v1.2.0",
+            "inputParamName": "preprocessing_docker_image_observation_data",
+            "inputParamType": "string",
+            "task": "preprocessing"
+        },
+        {
+            "description": "List of volumes to mount within the post-processing container downloading observation data.\nUse docker CLI-style syntax: /host:/container[:mode]",
+            "displayName": "Observation Data Volumes",
+            "inputParamDefaultValue": "[/wps_data/observations:/output]",
+            "inputParamName": "preprocessing_observation_data_volumes",
+            "inputParamType": "list",
+            "task": "preprocessing"
+        },
+        {
+            "description": "Download IFS files from this date, format YYYYMMDDHH",
+            "displayName": "Start Date",
+            "inputParamDefaultValue": "<nil>",
+            "inputParamName": "preprocessing_start_date",
+            "inputParamRequired": true,
+            "inputParamType": "string",
+            "task": "preprocessing"
+        },
+        {
+            "description": "Should the input dataset be uncompressed",
+            "displayName": "Uncompress Dataset Geographical Data",
+            "inputParamDefaultValue": "true",
+            "inputParamName": "preprocessing_uncompress_dataset_geographical_data",
+            "inputParamType": "boolean",
+            "task": "preprocessing"
+        },
+        {
+            "description": "List of volumes to mount within the pre-processing container.\nUse docker CLI-style syntax: /host:/container[:mode]",
+            "displayName": "Volumes",
+            "inputParamDefaultValue": "[/wps_data/ifs:/input /wps_data/output/inputs:/output /mnt/cloud_staging_area/agriculture:/geogrid]",
+            "inputParamName": "preprocessing_volumes",
+            "inputParamType": "list",
+            "task": "preprocessing"
+        },
+        {
+            "description": "WPS mode, WRF or WRFDA if data assimilation is needed",
+            "displayName": "Wps Mode",
+            "inputParamDefaultValue": "WRFDA",
+            "inputParamName": "preprocessing_wps_mode",
+            "inputParamType": "string",
+            "task": "preprocessing"
+        },
+        {
+            "description": "LEXIS project identifier",
+            "displayName": "Id",
+            "inputParamDefaultValue": "<nil>",
+            "inputParamName": "project_id",
+            "inputParamRequired": true,
+            "inputParamType": "string",
+            "task": "project"
+        },
+        {
+            "description": "OpenID Connect token",
+            "inputParamDefaultValue": "<nil>",
+            "inputParamName": "token",
+            "inputParamRequired": true,
+            "inputParamType": "string",
+            "task": "token"
+        }
+    ],
+    "nodeTemplates": [
+        {
+            "nodeName": "DeleteCloudWRFDataJob",
+            "nodeType": "org.lexis.common.ddi.nodes.DeleteCloudDataJob",
+            "tags": []
+        },
+        {
+            "nodeName": "WPS_IFS",
+            "nodeType": "org.ystia.docker.containers.docker.generic.nodes.GenericContainer",
+            "tags": [
+                {
+                    "key": "task",
+                    "value": "preprocessing"
+                }
+            ]
+        },
+        {
+            "nodeName": "ObservationsData",
+            "nodeType": "org.ystia.docker.containers.docker.generic.nodes.GenericContainer",
+            "tags": [
+                {
+                    "key": "task",
+                    "value": "preprocessing"
+                }
+            ]
+        },
+        {
+            "nodeName": "DDIToHPCTaskJob",
+            "nodeType": "org.lexis.common.ddi.nodes.DDIToHPCTaskJob",
+            "tags": [
+                {
+                    "key": "task",
+                    "value": "preprocessing"
+                }
+            ]
+        },
+        {
+            "nodeName": "DewetraUpload",
+            "nodeType": "org.lexis.wp7.nodes.DewetraUpload",
+            "tags": []
+        },
+        {
+            "nodeName": "MoveWRFAuxhistResults",
+            "nodeType": "org.lexis.common.datatransfer.nodes.MoveFile",
+            "tags": []
+        },
+        {
+            "nodeName": "CreatePreProcessDirs",
+            "nodeType": "org.lexis.common.datatransfer.nodes.CreateDirectories",
+            "tags": []
+        },
+        {
+            "nodeName": "Docker",
+            "nodeType": "org.ystia.docker.ansible.nodes.Docker",
+            "tags": []
+        },
+        {
+            "nodeName": "ECMWFData",
+            "nodeType": "org.lexis.wp7.nodes.ECMWFData",
+            "tags": []
+        },
+        {
+            "nodeName": "WRF",
+            "nodeType": "org.lexis.common.heappe.nodes.Job",
+            "tags": [
+                {
+                    "key": "task",
+                    "value": "computation"
+                }
+            ]
+        },
+        {
+            "nodeName": "StageWRFInputs",
+            "nodeType": "org.lexis.common.datatransfer.nodes.CopyToStagingAreaDirectory",
+            "tags": []
+        },
+        {
+            "nodeName": "DeleteCloudGEOGDataJob",
+            "nodeType": "org.lexis.common.ddi.nodes.DeleteCloudDataJob",
+            "tags": []
+        },
+        {
+            "nodeName": "RefreshVMToken",
+            "nodeType": "org.lexis.common.dynamic.orchestration.nodes.RefreshTargetTokens",
+            "tags": []
+        },
+        {
+            "nodeName": "GetDDIAccess",
+            "nodeType": "org.lexis.common.ddi.nodes.DDIAccess",
+            "tags": []
+        },
+        {
+            "nodeName": "MoveObservationData",
+            "nodeType": "org.lexis.common.datatransfer.nodes.MoveFile",
+            "tags": []
+        },
+        {
+            "nodeName": "FindHPCLocationsJob",
+            "nodeType": "org.lexis.common.dynamic.orchestration.nodes.SetLocationsJob",
+            "tags": [
+                {
+                    "key": "task",
+                    "value": "dynamic_orchestration"
+                }
+            ]
+        },
+        {
+            "nodeName": "HPCToCloudWRFJob",
+            "nodeType": "org.lexis.common.ddi.nodes.HPCToCloudJob",
+            "tags": []
+        },
+        {
+            "nodeName": "HPCToDDIJob",
+            "nodeType": "org.lexis.common.ddi.nodes.HPCToDDIJob",
+            "tags": [
+                {
+                    "key": "task",
+                    "value": "preprocessing"
+                }
+            ]
+        },
+        {
+            "nodeName": "FindCloudLocationJob",
+            "nodeType": "org.lexis.common.dynamic.orchestration.nodes.SetLocationsJob",
+            "tags": [
+                {
+                    "key": "task",
+                    "value": "dynamic_orchestration"
+                }
+            ]
+        },
+        {
+            "nodeName": "AgriVM",
+            "nodeType": "tosca.nodes.Compute",
+            "tags": []
+        },
+        {
+            "nodeName": "MountGEOGDataset",
+            "nodeType": "org.lexis.common.ddi.nodes.SSHFSMountStagingAreaDataset",
+            "tags": []
+        },
+        {
+            "nodeName": "GetPreprocessDatasetInfo",
+            "nodeType": "org.lexis.common.ddi.nodes.GetComputeInstanceDatasetInfo",
+            "tags": []
+        },
+        {
+            "nodeName": "CreateWRFDir",
+            "nodeType": "org.lexis.common.datatransfer.nodes.CreateDirectories",
+            "tags": []
+        },
+        {
+            "nodeName": "ValidateExchangeToken",
+            "nodeType": "org.lexis.common.dynamic.orchestration.nodes.ValidateAndExchangeToken",
+            "tags": []
+        },
+        {
+            "nodeName": "InputDatasetInfoJob",
+            "nodeType": "org.lexis.common.ddi.nodes.GetDDIDatasetInfoJob",
+            "tags": []
+        },
+        {
+            "nodeName": "MountWRFDataset",
+            "nodeType": "org.lexis.common.ddi.nodes.SSHFSMountStagingAreaDataset",
+            "tags": []
+        },
+        {
+            "nodeName": "MoveWRFLexisResult",
+            "nodeType": "org.lexis.common.datatransfer.nodes.MoveFile",
+            "tags": []
+        },
+        {
+            "nodeName": "ZIPUploadSFTP",
+            "nodeType": "org.lexis.common.datatransfer.nodes.ZIPUploadSFTP",
+            "tags": []
+        },
+        {
+            "nodeName": "PublicNetAgriVM",
+            "nodeType": "yorc.nodes.openstack.FloatingIP",
+            "tags": []
+        },
+        {
+            "nodeName": "DDIToCloudGEOGDatasetJob",
+            "nodeType": "org.lexis.common.ddi.nodes.DDIToCloudJob",
+            "tags": []
+        },
+        {
+            "nodeName": "CreateStagingAreaWRFInputDir",
+            "nodeType": "org.lexis.common.datatransfer.nodes.CreateStagingAreaDirectory",
+            "tags": []
+        },
+        {
+            "nodeName": "CloudToHPCTaskJob",
+            "nodeType": "org.lexis.common.ddi.nodes.CloudToHPCJob",
+            "tags": []
+        }
+    ],
+    "workflowTemplateID": "org.lexis.wp7.AgricultureTemplate:0.1.0-SNAPSHOT",
+    "workflowTemplateName": "org.lexis.wp7.AgricultureTemplate"
+}

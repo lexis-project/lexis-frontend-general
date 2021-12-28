@@ -1,0 +1,350 @@
+// TABLES FIX
+.card-body tr > td {
+  border-color: rgba(255, 255, 255, 0.1);
+  padding: 12px 7px;
+  vertical-align: middle;
+}
+
+// DATA TABLES
+.rdt_TableHeader {
+  display: table !important;
+  padding-left: 0 !important;
+}
+
+.rdt_TableCell {
+  padding-left: 4px;
+  margin-right: 1px;
+  border-left-color: rgba(255, 255, 255, 0.1);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+}
+
+.hRHDDS:not(:last-of-type) {
+  border-bottom-style: none !important;
+  border-bottom-width: 0 !important;
+}
+
+.rdt_TableCell > div:first-child {
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  margin-left: 10px;
+}
+
+.rdt_Fix {
+  position: relative !important;
+  width: 1550px !important;
+  border-radius: inherit !important;
+  overflow-x: hidden !important; 
+  overflow-y: hidden !important;
+  min-height: 0 !important;
+}
+
+.rdt_TableHeader > div > div {
+  margin: 0;
+}
+
+.rdt_TableHeader > div.sc-bkkfTU {
+    justify-content: flex-start;
+}
+
+.rdt_TableHeader .has-label > label {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rdt_TableRow > .bmkkvw {
+  padding-right: 0;
+  padding-left: 12px;
+}
+
+.rdt_TableRow {
+  margin-right: 1px;
+}
+
+// NAVBAR EDIT
+nav ul {
+  float: right;
+}
+
+nav #navigation {
+  float: right;
+  position: relative;
+  right: 75px;
+}
+
+nav ul li.user-profile {
+  display: inline-block;
+}
+
+.navbar.navbar-absolute {
+  left: 75px;
+}
+
+.card-wizard .card-body {
+  margin-top:0 !important;
+}
+
+// SIDEBAR MAIN MENU
+#versionInfo > p {
+  margin-top: .5rem;
+  margin-left: 1rem;
+  opacity: .5;
+  color: #FCFFFD;
+}
+
+.btn span.white {
+  color: #fff !important;
+}
+
+.sidebar-wrapper .btn span {
+  display: inline;
+}
+
+.sidebar-wrapper .btn span.menu-item-name {
+  vertical-align: sub;
+}
+
+.sidebar-wrapper .btn span.shortened {
+  visibility: hidden;
+  word-break: keep-all;
+}
+
+#versionInfo.shortened {
+  visibility: hidden;
+  word-break: keep-all;
+}
+
+.sidebar-wrapper .btn span.expanded {
+  visibility: visible;
+}
+
+#versionInfo.expanded {
+  visibility: visible;
+}
+
+.footer .footer-eu-info {
+  float: none;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #fff;
+}
+
+// TEXTAREA FIX
+.card-body .form-group textarea {
+  border-color: #2b3553;
+  border-radius: 0.4285rem;
+  font-size: 0.75rem;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  max-height: 150px;
+  height: 150px;
+}
+
+// DATETIME PICKER SUCCESS/DANGER FIX
+.datetime-picker.has-success:after {
+  right: 35px
+}
+
+.datetime-picker.has-danger:after {
+  right: 35px
+}
+
+// SIDEBAR/TABLES OVERFLOW - BROWSERS COMPATIBILITY FIX
+.sidebar-wrapper {
+  overflow: hidden !important;
+}
+
+.table-responsive {
+  overflow: hidden !important;
+}
+
+// FORMS DESIGN
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.card-body form div.col.input-array > div.has-success.has-label:after {
+	top: 10px !important;
+}
+
+// FONTS
+@import 'assets/css/montserrat.css';
+
+$font-family-sans-serif:  -apple-system, BlinkMacSystemFont, "Montserrat", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// ICONS
+@import 'assets/css/nucleo-icons.css';
+
+// importing all Black Dashboard custom theme .scss files
+@import 'assets/scss/black-dashboard.scss';
+
+// importing orginal Bootstrap's spinners
+@import 'assets/scss/spinnersBS5original';
+
+// DROPDOWN BEHAVIOUR ------------------------------------
+.drpdwn-btns {
+  padding: 0.6em;
+
+  &.dropdown-black {
+    border: 1px solid #FBBB11;
+    border-radius: 4px;
+
+    &.dropdown-divider { 
+      color: #FBBB11;
+    }
+
+    &:after {
+      color: #FBBB11;
+    }
+    
+    button {
+      width: 100%;
+    }
+  }
+
+  .btn {
+    margin: 2px auto;
+  }
+}
+
+// ---------------------------------------------------------
+
+label.error { // form error label
+  color: $danger;
+  &.file-error {
+    display: block;
+  }
+}
+
+.form-group input.form-control[type="file"]{
+  opacity: 1;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: .5em;
+  color: rgba(255,255,255,0.9);
+  padding: .3em;
+  height: 1.75rem;
+  z-index: -1;
+}
+
+.form-group.file-type {
+  &.has-success.has-label::after{
+    top: .5em;
+  }
+  &.has-danger.has-label::after{
+    top: .5em;
+  }
+
+  .label-wrap {
+    display: inline-flex;
+    align-items: center;
+    margin: .25em 0.5em;
+  } 
+
+  .file-type-selected-text {
+    opacity: 0.85;
+    margin-left: .8em;
+    font-size: .9rem;
+  }
+}
+
+.uploadFragment{
+  & .row.fieldsWrap{
+    justify-content: center;
+  }
+}
+
+// BUTTONS BEHAVIOR
+.btn-info.btn-simple:hover, .btn-info.btn-simple:focus, .btn-info.btn-simple:active {
+  border-color: #FBBB11;    
+  color: #ffffff;
+  background-color: rgba(245, 180, 0, 0.884) !important;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.btn-success.btn-simple:hover, .btn-success.btn-simple:focus, .btn-success.btn-simple:active {
+  border-color: #0D8136;    
+  color: #ffffff;
+  background-color: #0D8136 !important;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.btn-tumblr.btn-simple:hover, .btn-tumblr.btn-simple:focus, .btn-tumblr.btn-simple:active {
+  border-color: #333669;    
+  color: #ffffff;
+  background-color: #333669 !important;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.btn{
+  &:hover.btn-outline-secondary{
+    background-image: none;
+  }
+  &.btn-outline-secondary{
+  background-color: rgba(170,170,170, 0);
+  background-image: none;
+  border: 3px solid rgb(170,170,170);
+  transition: border-color 250ms ease, background-color 250ms ease;
+  &:hover{
+    background-color: rgba(170,170,170, 0.8);
+    background-image: none;
+    border-color: rgb(78, 78, 78)
+  }
+  }
+}
+
+hr {
+  border-top-color: rgba($primary, 0.8);
+}
+
+table.datasetFilelist {
+  td {
+    text-align: right;
+    &.name, &.parentDir, &.action-buttons {
+      text-align: left;
+      color: #FCFFFD;
+    }
+  }
+
+  button.imageLink, button.editorLink{
+    padding-left: 0;
+  }
+}
+.datasetsTable {
+  overflow-x: hidden;
+  padding-bottom: 15px;
+  #pagination-previous-page, #pagination-first-page, #pagination-next-page, #pagination-last-page {
+    margin: 0 .1rem;
+    background: rgba($color: #fff, $alpha: 0.7);
+    border-radius: 50%;
+    &:hover {
+      background: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.card-wizard .card-body {
+  background: #1f2539;
+  .card-body {
+    background: #27293d;
+  }
+}
+.d-block {
+  background: rgba(33, 33, 33, 0.4)
+}
+
+@import 'assets/scss/datasetfield.scss';

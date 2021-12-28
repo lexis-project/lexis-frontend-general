@@ -1,0 +1,41 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "jsx-a11y"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "indent": ["warn", 4],
+        "react/prop-types" : ["off"],
+        "no-console": ["warn", { "allow": ["warn", "error"]} ],
+        "react/display-name": "off",
+        "jsx-a11y/no-onchange": "off",
+        "react/no-children-prop": "off"
+    },
+    "settings": {
+        "react": {
+          "version": "detect"
+        }
+      },
+    "ignorePatterns": ["src/includes/", "src/assets/", "src/config/"]
+
+}

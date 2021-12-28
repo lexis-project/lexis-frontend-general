@@ -1,0 +1,49 @@
+[
+  {
+    "ApprovalStatus": "ACCEPTED",
+    "AssociatedLEXISProject": "00cbfc3d-8eb0-9496-9633-89d4f6d890ae",
+    "HEAppEEndpoint": "https://heappe.lexis.lrz.de/lexisdemo",
+    "HPCResourceID": "d3c47876-7367-8ea5-1fd5-bc7862a703dd",
+    "TermsConsent": true,
+    "AssociatedHPCProject": "di46sov",
+    "HPCProvider": "LRZ",
+    "ResourceType": "HPC"
+  },
+  {
+    "ApprovalStatus": "ACCEPTED",
+    "AssociatedLEXISProject": "00cbfc3d-8eb0-9496-9633-89d4f6d890ae",
+    "CloudNetworkName": "vlan104_lexis",
+    "HEAppEEndpoint": "https://heappe.it4i.cz/lexisdemo",
+    "HPCResourceID": "14115a0e-f76e-5da5-1840-011292c54614",
+    "OpenStackEndpoint": "https://openstack.msad.it4i.lexis.tech",
+    "OpenStackProjectID": "ea951dd56bbf410484a3b2fbdfb59047",
+    "ProjectNetworkName": "open-23-1_network",
+    "TermsConsent": true,
+    "AssociatedHPCProject": "OPEN-23-1",
+    "HPCProvider": "IT4I",
+    "ResourceType": "CLOUD"
+  },
+  {
+    "ApprovalStatus": "ACCEPTED",
+    "AssociatedLEXISProject": "00cbfc3d-8eb0-9496-9633-89d4f6d890ae",
+    "CloudNetworkName": "internet_pool",
+    "HEAppEEndpoint": "https://heappe.lexis.lrz.de/lexisdemo",
+    "HPCResourceID": "8001c68f-cdcc-9eaf-496c-408d1ae405ce",
+    "OpenStackEndpoint": "https://cc.lrz.de",
+    "OpenStackProjectID": "38c3cede95a2470c8c2410d9a40d7e75",
+    "TermsConsent": true,
+    "AssociatedHPCProject": "di46sov",
+    "HPCProvider": "LRZ",
+    "ResourceType": "CLOUD"
+  },
+  {
+    "ApprovalStatus": "ACCEPTED",
+    "AssociatedLEXISProject": "00cbfc3d-8eb0-9496-9633-89d4f6d890ae",
+    "HEAppEEndpoint": "https://heappe.it4i.cz/lexisdemo",
+    "HPCResourceID": "6c12efc0-e2c9-3389-003d-57ee21ccade3",
+    "TermsConsent": true,
+    "AssociatedHPCProject": "OPEN-23-1",
+    "HPCProvider": "IT4I",
+    "ResourceType": "HPC"
+  }
+]

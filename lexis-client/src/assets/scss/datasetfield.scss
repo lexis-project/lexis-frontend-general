@@ -1,0 +1,16 @@
+.selectDSFieldDialog {
+    max-width: 1024px;
+}
+.selectDSFieldContent, .darkModal {
+    background-color: #202235;
+    box-shadow: .4em .4em 8em rgb(0,0,0);
+    .modal-title.titleDSFieldBody {
+        color: white;
+    }
+}
+
+.selectDSFieldBody {
+    margin-top: 2em;
+    max-height: 75vh;
+    overflow-y: scroll;
+}

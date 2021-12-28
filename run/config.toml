@@ -1,0 +1,46 @@
+# Welcome to the configuration file for the
+#
+# ██╗     ███████╗██╗  ██╗██╗███████╗
+# ██║     ██╔════╝╚██╗██╔╝██║██╔════╝
+# ██║     █████╗   ╚███╔╝ ██║███████╗
+# ██║     ██╔══╝   ██╔██╗ ██║╚════██║
+# ███████╗███████╗██╔╝ ██╗██║███████║
+# ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝
+#
+# ██████╗  ██████╗ ██████╗ ████████╗ █████╗ ██╗
+# ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔══██╗██║
+# ██████╔╝██║   ██║██████╔╝   ██║   ███████║██║
+# ██╔═══╝ ██║   ██║██╔══██╗   ██║   ██╔══██║██║
+# ██║     ╚██████╔╝██║  ██║   ██║   ██║  ██║███████╗
+# ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝
+#
+#           ██████╗ ███████╗
+#           ██╔══██╗██╔════╝
+# █████╗    ██████╔╝█████╗      █████╗
+# ╚════╝    ██╔══██╗██╔══╝      ╚════╝
+#           ██████╔╝███████╗
+#           ╚═════╝ ╚══════╝
+
+[GENERAL]
+CertificateFile = "/cert/portal.pem"
+CertificateKey  = "/cert/key.pem"
+FrontEndDir     = "/frontend"
+HTTPSEnabled    = false
+LogFile         = "Portal_BE.log"
+# LogLevel = TRACE | DEBUG | INFO | WARNING | ERROR
+LogLevel        = "DEBUG"
+LogToConsole    = true
+ServerPort      = 443
+SessionDomain   = "portal.dev.lrz.lexis-project.eu"
+SessionKey      = "tEV8y/dJgMG/TXFPTSXoWcTQ2aaeZoUne5bSfro569c="
+TemplatesDir    = "./templates"
+
+[KEYCLOAK]
+Host = "keycloak.lrz.lexis-project.eu"
+Port = 443
+Realm = "Portal-testing"
+ClientID = "Portal-client"
+ClientSecret = "fb3adbc5-864a-4477-9c6b-cd4d498ed5b7"
+UseHTTP = false
+RedirectURL = ""
+

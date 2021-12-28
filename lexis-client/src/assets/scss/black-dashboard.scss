@@ -1,0 +1,142 @@
+/*!
+
+ =========================================================
+ * Black Dashboard Pro - v1.1.1
+ =========================================================
+
+ * Product Page: https://themes.getbootstrap.com/product/black-dashboard-pro-premium-bootstrap-4-admin/
+ * Copyright 2019 Creative Tim (http://www.creative-tim.com)
+
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ */
+
+ // Core
+
+@import "black-dashboard/custom/_functions";
+@import "black-dashboard/bootstrap/_functions";
+
+@import "black-dashboard/custom/_variables";
+@import "black-dashboard/bootstrap/_variables";
+
+@import "black-dashboard/custom/_mixins";
+@import "black-dashboard/bootstrap/_mixins";
+
+ // Bootstrap components
+
+@import "black-dashboard/bootstrap/_root";
+@import "black-dashboard/bootstrap/_reboot";
+@import "black-dashboard/bootstrap/_type";
+@import "black-dashboard/bootstrap/_images";
+@import "black-dashboard/bootstrap/_code";
+@import "black-dashboard/bootstrap/_grid";
+@import "black-dashboard/bootstrap/_tables";
+@import "black-dashboard/bootstrap/_forms";
+@import "black-dashboard/bootstrap/_buttons";
+@import "black-dashboard/bootstrap/_transitions";
+@import "black-dashboard/bootstrap/_dropdown";
+@import "black-dashboard/bootstrap/_button-group";
+@import "black-dashboard/bootstrap/_input-group";
+@import "black-dashboard/bootstrap/_custom-forms";
+@import "black-dashboard/bootstrap/_nav";
+@import "black-dashboard/bootstrap/_navbar";
+@import "black-dashboard/bootstrap/_card";
+@import "black-dashboard/bootstrap/_breadcrumb";
+@import "black-dashboard/bootstrap/_pagination";
+@import "black-dashboard/bootstrap/_badge";
+@import "black-dashboard/bootstrap/_jumbotron";
+@import "black-dashboard/bootstrap/_alert";
+@import "black-dashboard/bootstrap/_progress";
+@import "black-dashboard/bootstrap/_media";
+@import "black-dashboard/bootstrap/_list-group";
+@import "black-dashboard/bootstrap/_close";
+@import "black-dashboard/bootstrap/_modal";
+@import "black-dashboard/bootstrap/_tooltip";
+@import "black-dashboard/bootstrap/_popover";
+@import "black-dashboard/bootstrap/_carousel";
+@import "black-dashboard/bootstrap/_utilities";
+@import "black-dashboard/bootstrap/_print";
+
+ // Custom components
+
+ @import "black-dashboard/custom/_reboot.scss";
+ @import "black-dashboard/custom/_global.scss";
+ @import "black-dashboard/custom/_utilities.scss";
+ @import "black-dashboard/custom/_alerts.scss";
+ @import "black-dashboard/custom/_avatars.scss";
+ @import "black-dashboard/custom/_badge.scss";
+ @import "black-dashboard/custom/_buttons.scss";
+ @import "black-dashboard/custom/_close.scss";
+ @import "black-dashboard/custom/_custom-forms.scss";
+ @import "black-dashboard/custom/_dropdown.scss";
+ @import "black-dashboard/custom/_footer.scss";
+ @import "black-dashboard/custom/_forms.scss";
+ @import "black-dashboard/custom/_grid.scss";
+ @import "black-dashboard/custom/_icons.scss";
+ @import "black-dashboard/custom/_images.scss";
+ @import "black-dashboard/custom/_input-group.scss";
+ @import "black-dashboard/custom/_info-areas.scss";
+ @import "black-dashboard/custom/_modal.scss";
+ @import "black-dashboard/custom/_nav.scss";
+ @import "black-dashboard/custom/_navbar.scss";
+ @import "black-dashboard/custom/_pagination.scss";
+ @import "black-dashboard/custom/_tabs.scss";
+ @import "black-dashboard/custom/_pills.scss";
+ @import "black-dashboard/custom/_popover.scss";
+ @import "black-dashboard/custom/_progress.scss";
+ @import "black-dashboard/custom/_type.scss";
+ @import "black-dashboard/custom/_tables";
+ @import "black-dashboard/custom/_checkboxes-radio";
+ @import "black-dashboard/custom/_fixed-plugin";
+ @import "black-dashboard/custom/_sidebar-and-main-panel.scss";
+ @import "black-dashboard/custom/_misc.scss";
+ @import "black-dashboard/custom/_rtl.scss";
+ @import "black-dashboard/custom/_timeline.scss";
+
+ // Vendor / Plugins
+
+@import "black-dashboard/custom/vendor/_plugin-datetimepicker.scss";
+@import "black-dashboard/custom/vendor/_plugin-nouislider.scss";
+@import "black-dashboard/custom/vendor/_plugin-fullcalendar.scss";
+@import "black-dashboard/custom/vendor/_plugin-sweetalert2.scss";
+@import "black-dashboard/custom/vendor/_plugin-bootstrap-switch.scss";
+@import "black-dashboard/custom/vendor/_plugin-bootstrap-select.scss";
+@import "black-dashboard/custom/vendor/_plugin-jasny-fileupload.scss";
+@import "black-dashboard/custom/vendor/_plugin-tagsinput.scss";
+@import "black-dashboard/custom/vendor/_plugin-perfect-scrollbar.scss";
+@import "black-dashboard/custom/vendor/_plugin-jquery.jvectormap.scss";
+@import "black-dashboard/custom/vendor/_plugin-datatables.net.scss";
+@import "black-dashboard/custom/vendor/_plugin-animate-bootstrap-notify.scss";
+@import "black-dashboard/custom/vendor/_plugin-card-wizard.scss";
+@import "black-dashboard/custom/vendor/_plugin-chartjs.scss";
+
+// example pages and sections
+
+@import "black-dashboard/custom/_example-pages.scss";
+
+// light mode
+
+@import "black-dashboard/custom/_white-content.scss";
+
+// Cards
+
+@import 'black-dashboard/custom/_card';
+@import "black-dashboard/custom/cards/_card-chart";
+@import "black-dashboard/custom/cards/_card-map";
+@import "black-dashboard/custom/cards/_card-user";
+@import "black-dashboard/custom/cards/_card-task";
+@import "black-dashboard/custom/cards/_card-animation-on-hover";
+@import "black-dashboard/custom/cards/_card-collapse";
+@import "black-dashboard/custom/cards/_card-contributions";
+@import "black-dashboard/custom/cards/_card-lock";
+@import "black-dashboard/custom/cards/_card-pricing";
+@import "black-dashboard/custom/cards/_card-profile";
+@import "black-dashboard/custom/cards/_card-plain";
+@import "black-dashboard/custom/cards/_card-register";
+@import "black-dashboard/custom/cards/_card-stats";
+@import "black-dashboard/custom/cards/_card-subcategories";
+@import "black-dashboard/custom/cards/_card-testimonials";
+@import "black-dashboard/custom/cards/_card-wizard";

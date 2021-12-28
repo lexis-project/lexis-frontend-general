@@ -1,0 +1,294 @@
+# stages to run
+stages:
+  - build-client
+  - integration-test
+  - buildIT4I
+  - deployIT4I
+  - buildLRZ
+  - deployLRZ
+  - buildPROD
+  - deployPROD
+
+# saving project libraries to GitLab runner cache for faster installation
+#cache:
+#  paths:
+#    - $CI_PROJECT_DIR/lexis-be/node_modules/**/*
+  #  - $CI_PROJECT_DIR/cache/Cypress
+    #- $CI_PROJECT_DIR/lexis-client/node_modules/**/*
+   # - $CI_PROJECT_DIR/integration-test/node_modules/**/*
+
+# JOB: build portal client
+build-client:
+  # run this job in build stage
+  stage: build-client
+  # install docker image based on debian with Node.js version 12
+  image: node:14-alpine
+  variables:
+    #NODE_ENV: production
+    NODE_ENV: development
+  cache:
+  - key:
+      files:
+        - $CI_PROJECT_DIR/lexis-client/package.json
+    paths:
+      - $CI_PROJECT_DIR/lexis-client/node_modules/
+  # save artifacts (files) with configuration and build folder with portal client
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/lexis-client/build
+      - $CI_PROJECT_DIR/lexis-client/src/config/default.json
+    expire_in: 1 day
+  # script executed before main script
+  before_script:
+    - apk add yarn git
+    - git submodule init
+    - git submodule update --recursive
+    - cd lexis-client/
+    # create configuration file for portal client
+    - cp $CI_PROJECT_DIR/lexis-client/src/config/config.default.json $CI_PROJECT_DIR/lexis-client/src/config/default.json
+    # install required packages
+    - yarn --silent
+  # main script - build portal client application
+  script:
+    - yarn run lint
+  #  - yarn run build # production
+    - yarn run build-dev # development - enable source map
+
+# JOB: install and run Cypress integration tests
+integration-test:
+  # run this job in intagration_test stage
+  stage: integration-test
+  dependencies:
+    - build-client
+  # install docker image based on debian with Node.js version 12
+  image: node:14
+  cache:
+  - key:
+      files:
+        - $CI_PROJECT_DIR/integration-test/package.json
+    paths:
+      - $CI_PROJECT_DIR/integration-test/node_modules/
+  - key:
+      files:
+        - $CI_PROJECT_DIR/lexis-be/package.json
+    paths:
+      - $CI_PROJECT_DIR/lexis-be/node_modules/
+  - key:
+      files:
+        - $CI_PROJECT_DIR/integration-test/cypress/integration/
+    paths:
+      - $CI_PROJECT_DIR/cache/Cypress
+  # save artifacts (files) with logs, screenshots and videos of failed tests
+  artifacts:
+    when: on_failure
+    paths:
+      - $CI_PROJECT_DIR/integration-test/cypress/videos
+      - $CI_PROJECT_DIR/integration-test/cypress/screenshots
+      - $CI_PROJECT_DIR/integration-test/logs
+    expire_in: 1 day
+
+  # pass environmental variables to container
+  variables:
+    NODE_ENV: staging
+    # set cache folder for cypress to prevent permission errors
+    CYPRESS_CACHE_FOLDER: $CI_PROJECT_DIR/cache/Cypress
+  # script executed before main script
+  before_script:
+    - apt-get update
+    # install graphical packages required by cypress
+    - apt-get install -y libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 xvfb
+    # move build folder with client portal to integrations-test folder
+    - mv $CI_PROJECT_DIR/lexis-client/build/ $CI_PROJECT_DIR/integration-test/
+    - cd lexis-be/
+    # install fake backend dependencies
+    - yarn --silent
+    - cd ../integration-test/
+    # install dependencies for testing
+    - yarn --silent
+    - yarn add cypress@8.5.0
+    - yarn add cypress-file-upload
+    - npm install -g pm2
+  # main script - run tests
+  script:
+    # before launching pm2's daemonized processes, it's needed to launch following command to clear all residual processes from previous runs, which would instead disallow proper fresh start of desired processes
+    - pm2 update
+    # launch portal hosting and fake backend in containers by pm2 (Advanced process manager)
+    # Fake backend returns MANAGER as user role
+    - pm2 start run-app-staging-manager.config.js
+    # verify cypress installation
+    - $(npm bin)/cypress verify
+    # run test in integration test for user role MANAGER
+    - $(npm bin)/cypress run --spec cypress/integration/flows/user-roles-manager.test.js
+    # stop pm2 containers
+    - pm2 stop run-app-staging-manager.config.js
+    # Fake backend returns ENGINEER as user role
+    - pm2 start run-app-staging-engineer.config.js
+    # run test in integration test for user role ENGINEER
+    - $(npm bin)/cypress run --spec cypress/integration/flows/user-roles-engineer.test.js
+    # stop pm2 containers
+    - pm2 stop run-app-staging-engineer.config.js
+    # Fake backend returns DAT_MGR as user role
+    - pm2 start run-app-staging-datmanager.config.js
+    # run test in integration test for user role DAT_MGR
+    - $(npm bin)/cypress run --spec cypress/integration/flows/user-roles-datmanager.test.js
+
+buildIT4I:
+  stage: buildIT4I
+  image: docker:latest
+
+  dependencies:
+    - integration-test
+
+  before_script:
+    - docker info
+    - cp build/Dockerfile .
+    - echo "[url \"https://gitlab-ci-token:${CI_JOB_TOKEN}@code.it4i.cz/\"]" > gitconfig
+    - echo "insteadOf = https://code.it4i.cz/" >> gitconfig
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASS" $DOCKER_REGISTRY_URL
+    - sed -i "s/HPC/IT4I/g" Dockerfile
+
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:IT4I-latest || true
+    - docker build --network host --build-arg COMPILATION="$(date +%s)" --cache-from registry.msad.it4i.lexis.tech:5000/lexis-portal-be:IT4I-latest -t registry.msad.it4i.lexis.tech:5000/lexis-portal-be:IT4I-$(cat VERSION) -t registry.msad.it4i.lexis.tech:5000/lexis-portal-be:IT4I-$(cat VERSION)-$CI_COMMIT_SHORT_SHA -t registry.msad.it4i.lexis.tech:5000/lexis-portal-be:IT4I-latest .
+    - docker push registry.msad.it4i.lexis.tech:5000/lexis-portal-be:IT4I-latest
+    - docker push registry.msad.it4i.lexis.tech:5000/lexis-portal-be:IT4I-$(cat VERSION)
+    - docker push registry.msad.it4i.lexis.tech:5000/lexis-portal-be:IT4I-$(cat VERSION)-$CI_COMMIT_SHORT_SHA
+
+  only:
+    refs:
+      - development
+
+deployIT4I:
+  stage: deployIT4I
+  image: hyperized/openssh-client:latest
+
+  dependencies:
+    - buildIT4I
+
+  before_script:
+    - eval $(ssh-agent -s)
+    - cat ${CI_DEPLOY_KEY} | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan portal.msad.it4i.lexis.tech >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+  script:
+    - ssh deploy@portal.msad.it4i.lexis.tech "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASS $DOCKER_REGISTRY_URL"
+    - ssh deploy@portal.msad.it4i.lexis.tech "docker-compose stop lexis-portal-be"
+    - ssh deploy@portal.msad.it4i.lexis.tech "docker rmi -f registry.msad.it4i.lexis.tech:5000/lexis-portal-be:IT4I-latest"
+    - ssh deploy@portal.msad.it4i.lexis.tech "docker pull registry.msad.it4i.lexis.tech:5000/lexis-portal-be:IT4I-latest"
+    - ssh deploy@portal.msad.it4i.lexis.tech "yes | docker-compose up -d lexis-portal-be"
+    - ssh deploy@portal.msad.it4i.lexis.tech "docker logout $DOCKER_REGISTRY_URL"
+
+  only:
+    refs:
+      - development
+
+buildLRZ:
+    stage: buildLRZ
+    image: docker:latest
+
+    dependencies:
+      - integration-test
+
+    before_script:
+      - docker info
+      - cp build/Dockerfile .
+      - echo "[url \"https://gitlab-ci-token:${CI_JOB_TOKEN}@code.it4i.cz/\"]" > gitconfig
+      - echo "insteadOf = https://code.it4i.cz/" >> gitconfig
+      - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASS" $DOCKER_REGISTRY_URL
+      - sed -i "s/HPC/LRZ/g" Dockerfile
+
+    script:
+      - docker pull $CI_REGISTRY_IMAGE:LRZ-latest || true
+      - docker build --network host --build-arg COMPILATION="$(date +%s)" --cache-from registry.msad.it4i.lexis.tech:5000/lexis-portal-be:LRZ-latest -t registry.msad.it4i.lexis.tech:5000/lexis-portal-be:LRZ-$(cat VERSION) -t registry.msad.it4i.lexis.tech:5000/lexis-portal-be:LRZ-$(cat VERSION)-$CI_COMMIT_SHORT_SHA -t registry.msad.it4i.lexis.tech:5000/lexis-portal-be:LRZ-latest .
+      - docker push registry.msad.it4i.lexis.tech:5000/lexis-portal-be:LRZ-latest
+      - docker push registry.msad.it4i.lexis.tech:5000/lexis-portal-be:LRZ-$(cat VERSION)
+      - docker push registry.msad.it4i.lexis.tech:5000/lexis-portal-be:LRZ-$(cat VERSION)-$CI_COMMIT_SHORT_SHA
+
+    only:
+      refs:
+        - development
+
+deployLRZ:
+  stage: deployLRZ
+  image: hyperized/openssh-client:latest
+
+  dependencies:
+    - buildLRZ
+
+  before_script:
+    - eval $(ssh-agent -s)
+    - cat ${CI_DEPLOY_KEY_LRZ} | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan ${CI_HOST_LRZ} >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+  script:
+    - ssh ${CI_DEPLOY_USER_LRZ}@${CI_HOST_LRZ} "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASS $DOCKER_REGISTRY_URL"
+    - ssh ${CI_DEPLOY_USER_LRZ}@${CI_HOST_LRZ} "docker-compose stop lexis-portal-be"
+    - ssh ${CI_DEPLOY_USER_LRZ}@${CI_HOST_LRZ} "yes | docker-compose rm lexis-portal-be"
+    - ssh ${CI_DEPLOY_USER_LRZ}@${CI_HOST_LRZ} "docker rmi -f registry.msad.it4i.lexis.tech:5000/lexis-portal-be:LRZ-latest"
+    - ssh ${CI_DEPLOY_USER_LRZ}@${CI_HOST_LRZ} "docker pull registry.msad.it4i.lexis.tech:5000/lexis-portal-be:LRZ-latest"
+    - ssh ${CI_DEPLOY_USER_LRZ}@${CI_HOST_LRZ} "yes | docker-compose up -d lexis-portal-be"
+    - ssh ${CI_DEPLOY_USER_LRZ}@${CI_HOST_LRZ} "docker logout $DOCKER_REGISTRY_URL"
+
+  only:
+    refs:
+      - development
+
+buildPROD:
+  stage: buildPROD
+  image: docker:latest
+
+  dependencies:
+    - integration-test
+
+  before_script:
+    - docker info
+    - cp build/DockerfilePROD ./Dockerfile
+    - echo "[url \"https://gitlab-ci-token:${CI_JOB_TOKEN}@code.it4i.cz/\"]" > gitconfig
+    - echo "insteadOf = https://code.it4i.cz/" >> gitconfig
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASS" $DOCKER_REGISTRY_URL
+    - sed -i "s/HPC/PROD/g" Dockerfile
+
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:PROD-latest || true
+    - docker build --network host --build-arg COMPILATION="$(date +%s)" --cache-from registry.msad.it4i.lexis.tech:5000/lexis-portal-be:PROD-latest -t registry.msad.it4i.lexis.tech:5000/lexis-portal-be:PROD-$(cat VERSION) -t registry.msad.it4i.lexis.tech:5000/lexis-portal-be:PROD-$(cat VERSION)-$CI_COMMIT_SHORT_SHA -t registry.msad.it4i.lexis.tech:5000/lexis-portal-be:PROD-latest .
+    - docker push registry.msad.it4i.lexis.tech:5000/lexis-portal-be:PROD-latest
+    - docker push registry.msad.it4i.lexis.tech:5000/lexis-portal-be:PROD-$(cat VERSION)
+    - docker push registry.msad.it4i.lexis.tech:5000/lexis-portal-be:PROD-$(cat VERSION)-$CI_COMMIT_SHORT_SHA
+
+  only:
+    refs:
+      - master
+
+deployPROD:
+  stage: deployPROD
+  image: hyperized/openssh-client:latest
+
+  dependencies:
+    - buildPROD
+
+  before_script:
+    - eval $(ssh-agent -s)
+    - cat ${CI_DEPLOY_KEY} | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan ${CI_HOST_PROD_IT4I} >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+  script:
+    - ssh deploy@${CI_HOST_PROD_IT4I} "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASS $DOCKER_REGISTRY_URL"
+    - ssh deploy@${CI_HOST_PROD_IT4I} "docker-compose stop lexis-portal-be"
+    - ssh deploy@${CI_HOST_PROD_IT4I} "yes | docker-compose rm lexis-portal-be"
+    - ssh deploy@${CI_HOST_PROD_IT4I} "docker rmi -f registry.msad.it4i.lexis.tech:5000/lexis-portal-be:PROD-latest"
+    - ssh deploy@${CI_HOST_PROD_IT4I} "docker pull registry.msad.it4i.lexis.tech:5000/lexis-portal-be:PROD-latest"
+    - ssh deploy@${CI_HOST_PROD_IT4I} "yes | docker-compose up -d lexis-portal-be"
+    - ssh deploy@${CI_HOST_PROD_IT4I} "docker logout $DOCKER_REGISTRY_URL"
+
+  only:
+    refs:
+      - master

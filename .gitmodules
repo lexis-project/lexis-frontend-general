@@ -1,0 +1,6 @@
+[submodule "lexis-client/includes/jszip"]
+	path = lexis-client/includes/jszip
+	url = https://github.com/lexis-project/jszip
+[submodule "lexis-client/src/includes/jszip"]
+	path = lexis-client/src/includes/jszip
+	url = https://github.com/lexis-project/jszip

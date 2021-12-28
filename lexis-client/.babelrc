@@ -1,0 +1,2 @@
+//for cypress only now (imported by cypress by default)
+{ "presets": ["@babel/preset-env"] }

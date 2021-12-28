@@ -1,0 +1,607 @@
+[
+  {
+    "location": {
+      "access": "public",
+      "internalID": "edcca382-b1a4-11ea-8c4e-0050568fc9b5",
+      "project": "lexis_pilot"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "doiX://lexis-datasets/wp5/dataset1",
+        "doiY://lexis-datasets/wp5/dataset1"
+      ],
+      "CustomMetadataSchema": [
+        {
+          "_id": "6064f21d1c45e677d25a0146",
+          "index": 0,
+          "guid": "568c17e6-7485-483e-be88-818e2d743e44",
+          "isActive": true,
+          "balance": "$3,749.95",
+          "picture": "http://placehold.it/32x32",
+          "about": "Dolore officia cupidatat quis do occaecat esse ad enim ex nulla duis irure. Qui velit incididunt eiusmod aute sint excepteur dolore dolor ad occaecat est. Qui aliquip Lorem laborum sunt.\r\n",
+          "registered": "2015-07-10T06:16:28 -02:00",
+          "latitude": 89.03649,
+          "longitude": -35.423284,
+          "tags": [
+            "Lorem",
+            "Lorem",
+            "velit",
+            "dolore",
+            "magna",
+            "Lorem",
+            "consectetur"
+          ],
+          "friends": [
+            {
+              "id": 0,
+              "name": "Beatrice Mayer"
+            },
+            {
+              "id": 1,
+              "name": "Rivers Mcgowan"
+            },
+            {
+              "id": 2,
+              "name": "Sosa Mckinney"
+            }
+          ],
+          "greeting": "Hello, Cotton Solis! You have 3 unread messages.",
+          "favoriteFruit": "banana"
+        }
+      ],
+      "contributor": [
+        "RISICO workflow",
+        "ISICO workflow"
+      ],
+      "creator": [
+        "RISICO workflow"
+      ],
+      "owner": [
+        "Stable Ground",
+        "Ground"
+      ],
+      "publisher": [
+        "RISICO workflow",
+        "OCISIR wrkflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset1",
+      "relatedIdentifier": [
+        "x",
+        "y",
+        "z"
+      ],
+      "resourceType": "Workflow result",
+      "rights": [
+        "Open Data Commons Open Database License",
+        "Creative Commons Public Domain Dedication"
+      ],
+      "rightsIdentifier": [
+        "ODbL",
+        "CC-0"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/odbl/1-0/",
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "title": "wp5/dataset1",
+      "publicationYear": "2011"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "True",
+      "PID": "1001/a5f5c19c-e778-11ea-abfe-0050568f81d2"
+    }
+  },
+  {
+    "location": {
+      "access": "project",
+      "internalID": "a5b8ddbe-6054-4cb7-98ff-e678b6eba7f4",
+      "project": "lexis_weather"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "doi://xyz",
+        "doi://klm"
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "AISICO workflow"
+      ],
+      "creator": [
+        "RISICO workflow"
+      ],
+      "owner": [
+        "Stable Ground",
+        "xyz"
+      ],
+      "publisher": [
+        "RISICO workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset2",
+      "relatedIdentifier": [
+        "doi://a",
+        "doi://aa"
+      ],
+      "resourceType": "Workflow result",
+      "rights": [
+        "a"
+      ],
+      "rightsIdentifier": [
+        "ODbL",
+        "CC-0"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/pddl/1-0/"
+      ],
+      "title": "wp5/dataset2",
+      "publicationYear": "2012"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "True",
+      "PID": "1002/92b7162d-2f4d-4174-b9c8-711ff6b03bbb"
+    }
+  },
+  {
+    "location": {
+      "access": "user",
+      "internalID": "5ce23b68-b958-4367-a24b-a10241808a68",
+      "project": "lexis_earthquake"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        2
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "BISICO workflow"
+      ],
+      "creator": [
+        "RISICO workflow",
+        "ICO workflow"
+      ],
+      "owner": [
+        "abc"
+      ],
+      "publisher": [
+        "RISICO workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset3",
+      "relatedIdentifier": [
+        "1"
+      ],
+      "resourceType": "Workflow result",
+      "rights": [
+        "b"
+      ],
+      "rightsIdentifier": [
+        "ODbL",
+        "CC-1"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/pddl/1-0/"
+      ],
+      "title": "wp5/dataset3",
+      "publicationYear": "2013"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "True",
+      "PID": "1003/dab0cb5c-6463-417c-a7fd-233fc89e27ca"
+    }
+  },
+  {
+    "location": {
+      "access": "public",
+      "internalID": "8eea718a-345b-41f4-8380-1fc160341a43",
+      "project": "lexis_forecast"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        2,
+        3,
+        4
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "CISICO4 workflow"
+      ],
+      "creator": [
+        "RISICO4 workflow"
+      ],
+      "owner": [
+        "Stable Ground"
+      ],
+      "publisher": [
+        "RISICO4 workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset4",
+      "relatedIdentifier": [
+        "2"
+      ],
+      "resourceType": "Workflow result4",
+      "rights": [
+        "b"
+      ],
+      "rightsIdentifier": [
+        "ODbL",
+        "CC-1"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/by/1-0/"
+      ],
+      "title": "wp5/dataset4",
+      "publicationYear": "2014"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "True",
+      "PID": "1004/e5fc4491-e0af-415e-94fa-61e56fdfac0a"
+    }
+  },
+  {
+    "location": {
+      "access": "user",
+      "internalID": "db9326a0-1429-44d5-94b5-039cdcf21021",
+      "project": "lexis_pilot"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "alt1",
+        "alt2"
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "DISICO5 workflow"
+      ],
+      "creator": [
+        "RISICO5 workflow"
+      ],
+      "owner": [
+        "Stable Ground"
+      ],
+      "publisher": [
+        "RISICO5 workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset5",
+      "relatedIdentifier": [
+        "doi://bbb",
+        "doi://bjsdfhds"
+      ],
+      "resourceType": "Workflow result5",
+      "rights": [
+        "c"
+      ],
+      "rightsIdentifier": [
+        "CC-2"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/by/1-0/"
+      ],
+      "title": "wp5/dataset5",
+      "publicationYear": "2015"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "True",
+      "PID": "1005/7b6dafd5-6293-4c4a-b591-dd97fa2f6c56"
+    }
+  },
+  {
+    "location": {
+      "access": "public",
+      "internalID": "76e39e3c-0e40-4cf6-9d90-f1c2862ce435",
+      "project": "lexis_weather"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "xxx",
+        "yyy"
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "EISICO6 workflow"
+      ],
+      "creator": [
+        "RISICO6 workflow"
+      ],
+      "owner": [
+        "Stable Ground"
+      ],
+      "publisher": [
+        "RISICO6 workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset6",
+      "relatedIdentifier": [
+        "3"
+      ],
+      "resourceType": "Workflow result6",
+      "rights": [
+        "d"
+      ],
+      "rightsIdentifier": [
+        "CC-2"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/by/1-0/"
+      ],
+      "title": "wp5/dataset6",
+      "publicationYear": "2016"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "False",
+      "PID": "1006/dab0cb5c-6463-417c-a7fd-233fc89e27ca"
+    }
+  },
+  {
+    "location": {
+      "access": "project",
+      "internalID": "b62bd396-2cd1-48c1-8e25-4543130e60bc",
+      "project": "lexis_pilot"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "zzz"
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "FISICO7 workflow"
+      ],
+      "creator": [
+        "RISICO7 workflow"
+      ],
+      "owner": [
+        "Stable Ground"
+      ],
+      "publisher": [
+        "RISICO7 workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset7",
+      "relatedIdentifier": [
+        "4"
+      ],
+      "resourceType": "Workflow result7",
+      "rights": [
+        "d"
+      ],
+      "rightsIdentifier": [
+        "CC-3",
+        "ODB"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/by/1-0/"
+      ],
+      "title": "wp5/dataset7",
+      "publicationYear": "2017"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "False",
+      "PID": "1007/960a7a4a-6cd3-413f-b0df-64367b44f9b8"
+    }
+  },
+  {
+    "location": {
+      "access": "project",
+      "internalID": "6ba157ad-d339-4f47-a247-5ce701757ee3",
+      "project": "lexis_pilot"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "zzz"
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "FISICO7 workflow"
+      ],
+      "creator": [
+        "RISICO7 workflow"
+      ],
+      "owner": [
+        "Stable Ground"
+      ],
+      "publisher": [
+        "RISICO7 workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset7",
+      "relatedIdentifier": [
+        "4"
+      ],
+      "resourceType": "Workflow result7",
+      "rights": [
+        "d"
+      ],
+      "rightsIdentifier": [
+        "CC-3",
+        "ODB"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/by/1-0/"
+      ],
+      "title": "wp5/dataset8",
+      "publicationYear": "2018"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "False",
+      "PID": "1007/960a7a4a-6cd3-413f-b0df-64367b44f9b8"
+    }
+  },
+  {
+    "location": {
+      "access": "project",
+      "internalID": "50b31bfa-98ea-4992-8dc0-e30a5805c81d",
+      "project": "lexis_pilot"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "zzz"
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "FISICO7 workflow"
+      ],
+      "creator": [
+        "RISICO7 workflow"
+      ],
+      "owner": [
+        "Stable Ground"
+      ],
+      "publisher": [
+        "RISICO7 workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset7",
+      "relatedIdentifier": [
+        "4"
+      ],
+      "resourceType": "Workflow result7",
+      "rights": [
+        "d"
+      ],
+      "rightsIdentifier": [
+        "CC-3",
+        "ODB"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/by/1-0/"
+      ],
+      "title": "wp5/dataset9",
+      "publicationYear": "2019"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "False",
+      "PID": "1007/960a7a4a-6cd3-413f-b0df-64367b44f9b8"
+    }
+  },
+  {
+    "location": {
+      "access": "project",
+      "internalID": "e2f8d108-a4db-467c-bf31-494ec6c9faac",
+      "project": "lexis_pilot"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "zzz"
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "FISICO7 workflow"
+      ],
+      "creator": [
+        "RISICO7 workflow"
+      ],
+      "owner": [
+        "Stable Ground"
+      ],
+      "publisher": [
+        "RISICO7 workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset7",
+      "relatedIdentifier": [
+        "4"
+      ],
+      "resourceType": "Workflow result7",
+      "rights": [
+        "d"
+      ],
+      "rightsIdentifier": [
+        "CC-3",
+        "ODB"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/by/1-0/"
+      ],
+      "title": "wp5/dataset10",
+      "publicationYear": "2020"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "False",
+      "PID": "1007/960a7a4a-6cd3-413f-b0df-64367b44f9b8"
+    }
+  },
+  {
+    "location": {
+      "access": "project",
+      "internalID": "9942c3b3-f487-4248-b057-4d3f01d57da8",
+      "project": "lexis_pilot"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "zzz"
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "FISICO7 workflow"
+      ],
+      "creator": [
+        "RISICO7 workflow"
+      ],
+      "owner": [
+        "Stable Ground"
+      ],
+      "publisher": [
+        "RISICO7 workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset7",
+      "relatedIdentifier": [
+        "4"
+      ],
+      "resourceType": "Workflow result7",
+      "rights": [
+        "d"
+      ],
+      "rightsIdentifier": [
+        "CC-3",
+        "ODB"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/by/1-0/"
+      ],
+      "title": "wp5/dataset11",
+      "publicationYear": "2021"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "False",
+      "PID": "1007/960a7a4a-6cd3-413f-b0df-64367b44f9b8"
+    }
+  },
+  {
+    "location": {
+      "access": "project",
+      "internalID": "4ec298d2-ecd1-4780-923c-407dc676b0c0",
+      "project": "lexis_pilot"
+    },
+    "metadata": {
+      "AlternateIdentifier": [
+        "zzz"
+      ],
+      "CustomMetadataSchema": [],
+      "contributor": [
+        "FISICO7 workflow"
+      ],
+      "creator": [
+        "RISICO7 workflow"
+      ],
+      "owner": [
+        "Stable Ground"
+      ],
+      "publisher": [
+        "RISICO7 workflow"
+      ],
+      "identifier": "doi://lexis-datasets/wp5/dataset7",
+      "relatedIdentifier": [
+        "4"
+      ],
+      "resourceType": "Workflow result7",
+      "rights": [
+        "d"
+      ],
+      "rightsIdentifier": [
+        "CC-3",
+        "ODB"
+      ],
+      "rightsURI": [
+        "https://opendatacommons.org/licenses/by/1-0/"
+      ],
+      "title": "wp5/dataset12",
+      "publicationYear": "2021"
+    },
+    "eudat": {
+      "EUDAT/FIXED_CONTENT": "False",
+      "PID": "1007/960a7a4a-6cd3-413f-b0df-64367b44f9b8"
+    }
+  }
+]

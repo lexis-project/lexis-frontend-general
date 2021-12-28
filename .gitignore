@@ -1,0 +1,48 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# logs
+lexis-be/npm-debug.log*
+lexis-be/yarn-debug.log*
+lexis-be/yarn-error.log*
+lexis-client/npm-debug.log*
+lexis-client/yarn-debug.log*
+lexis-client/yarn-error.log*
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ignore package managers lock files (both in /lexis-be as well as /lexis-client)
+package-lock.json
+yarn.lock
+lexis-be/package-lock.json
+lexis-be/yarn.lock
+lexis-client/yarn.lock
+lexis-client/package-lock.json
+
+# ignore IDE files (both in /lexis-be as well as /lexis-client)
+.idea
+.idea/*
+.vscode
+.vscode/*
+lexis-be/.idea
+lexis-be/.idea/*
+lexis-client/.vscode
+lexis-client/.vscode/*
+
+# go
+deploy/server/vendor
