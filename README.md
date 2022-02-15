@@ -1,5 +1,7 @@
 # lexis-frontend-general
 
+<a href="https://doi.org/10.5281/zenodo.6080535"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6080535.svg" alt="DOI"></a>
+
 This repository contains Lexis portal GUI components for managing workflows, datasets, users and organizations.
 
 ## Acknowledgement
